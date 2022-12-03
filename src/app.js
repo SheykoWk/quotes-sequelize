@@ -1,7 +1,8 @@
 const express = require("express");
 
 const db = require('./utils/database')
-const quoteRouter = require('./quotes/quotes.router')
+const userRouter = require('./users/users.router')
+const quoteRouter = require('./quotes/quotes.router');
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/v1', quoteRouter)
+app.use('/api/v1/users', userRouter)
 
 app.listen(port, () => {
   console.log(`Server started at port ${port}`);
